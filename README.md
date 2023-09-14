@@ -36,7 +36,7 @@ create database market;
   - ex) spring.datasource.username=root
 ```
 #JDBC
-spring.datasource.url=jdbc:mysql://localhost:3306/blog
+spring.datasource.url=jdbc:mysql://localhost:3306/market
 spring.datasource.username=<username>
 spring.datasource.password=<password>
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
