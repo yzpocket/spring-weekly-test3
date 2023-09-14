@@ -105,6 +105,7 @@ spring.jpa.properties.hibernate.use_sql_comments=true
 </details>
 
 ## ✅ POSTMAN - TEST 결과
+### AWS EC2 API TEST Published - http://3.15.57.230:8080/api/{...}
 ### API Specification Published by POSTMAN - https://documenter.getpostman.com/view/29343996/2s9YC4WDUG
 #### 판매 게시글 작성 (CREATE-POST)
 ![image](https://github.com/yzpocket/spring-weekly-test3/assets/67217259/2bf5fe1e-e2ca-4c35-9c6e-28065b43a430)
