@@ -1,8 +1,8 @@
 package com.sparta.market.controller;
 
+import com.sparta.market.dto.DeleteResponseDto;
 import com.sparta.market.dto.ItemRequestDto;
 import com.sparta.market.dto.ItemResponseDto;
-import com.sparta.market.entity.Item;
 import com.sparta.market.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -41,15 +41,20 @@ public class ItemController {
         }
     }
 
-    // 판매 게시글 수정
+    // 판매 게시글 수정 (refactor : API response Type change)
     @PutMapping("/post/{id}")
-    public Item updateItem(@PathVariable Long id, @RequestBody ItemRequestDto requestDto) { //, HttpServletRequest req
-        return itemService.updateItem(id, requestDto); //, username
+    public ItemResponseDto updateItem(@PathVariable Long id, @RequestBody ItemRequestDto requestDto) {
+        ItemResponseDto updatedItem = itemService.updateItem(id, requestDto);
+        return new ItemResponseDto(updatedItem);
     }
+        //return itemService.updateItem(id, requestDto); //ItremResponseDto를 반환하도록 수정 //, username
 
-    // 선택 글 삭제
+    // 선택 글 삭제 (refactor : API response Type change)
     @DeleteMapping("/post/{id}")
-    public ResponseEntity<String> deleteItem(@PathVariable Long id) { //, HttpServletRequest req
-        return itemService.deleteItem(id); //, username
+    //public ResponseEntity<String> deleteItem(@PathVariable Long id) { //, HttpServletRequest req
+        //return itemService.deleteItem(id); //, username
+    public ResponseEntity<DeleteResponseDto> deleteItem(@PathVariable Long id) {
+        DeleteResponseDto responseDto = itemService.deleteItem(id);
+        return ResponseEntity.ok(responseDto);
     }
 }

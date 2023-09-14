@@ -29,6 +29,15 @@ public class ItemResponseDto { // response Dto
         this.username = username;
         //this.createdAt = createdAt;
     }
+
+    public ItemResponseDto(ItemResponseDto updatedItem) {
+        this.id = updatedItem.getId();
+        this.title = updatedItem.getTitle();
+        this.content = updatedItem.getContent();
+        this.price = updatedItem.getPrice();
+        this.username = updatedItem.getUsername();
+    }
+
     public static ItemResponseDto fromItem(Item item) { // 필요한 정보만 내보내기
         return new ItemResponseDto(item.getUsername(), item.getTitle(), item.getContent(), item.getPrice()); //, item.getCreatedAt()
     }
