@@ -6,7 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
-    //List<Item> findAllByOrderByModifiedAtDesc(); //Audit으로 시간쓸때 이거쓰면 좋음
-    //List<Item> findAllByIdContainsOrderByModifiedAtDesc(Long id);
 
 }

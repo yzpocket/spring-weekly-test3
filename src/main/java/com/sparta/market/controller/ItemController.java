@@ -19,8 +19,8 @@ public class ItemController {
 
     // 판매 게시 글 작성
     @PostMapping("/post")
-    public ItemResponseDto createItem(@RequestBody ItemRequestDto requestDto) { //, HttpServletRequest req 나중에 유저정보필요하면 이것!
-        return itemService.createItem(requestDto); //, user.getUsername()
+    public ItemResponseDto createItem(@RequestBody ItemRequestDto requestDto) {
+        return itemService.createItem(requestDto);
     }
 
     // 판매 게시글 전체 리스트 조회
@@ -47,12 +47,9 @@ public class ItemController {
         ItemResponseDto updatedItem = itemService.updateItem(id, requestDto);
         return new ItemResponseDto(updatedItem);
     }
-        //return itemService.updateItem(id, requestDto); //ItremResponseDto를 반환하도록 수정 //, username
 
     // 선택 글 삭제 (refactor : API response Type change)
     @DeleteMapping("/post/{id}")
-    //public ResponseEntity<String> deleteItem(@PathVariable Long id) { //, HttpServletRequest req
-        //return itemService.deleteItem(id); //, username
     public ResponseEntity<DeleteResponseDto> deleteItem(@PathVariable Long id) {
         DeleteResponseDto responseDto = itemService.deleteItem(id);
         return ResponseEntity.ok(responseDto);
