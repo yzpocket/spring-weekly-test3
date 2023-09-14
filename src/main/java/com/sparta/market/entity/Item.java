@@ -1,5 +1,6 @@
 package com.sparta.market.entity;
 
+import com.sparta.market.dto.ItemRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,23 @@ public class Item {
     @Column(name = "username", nullable = false)
     private String username; //작성자
 
+    public Item(ItemRequestDto requestDto) { //, String tokenUsername
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+        this.username = requestDto.getUsername();
+        this.price = requestDto.getPrice();
+        //this.username = tokenUsername; // 사용자 이름 설정 아직은 로그인 유저정보 필요없어요
+    }
 
+    public void update(ItemRequestDto requestDto){ //, String username
+        this.username = requestDto.getUsername();
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+        this.price = requestDto.getPrice();
+    }
+
+    //public String getPassword(BlogRequestDto requestDto){
+    //    this.password = requestDto.getPassword();
+    //    return password;
+    //}
 }
